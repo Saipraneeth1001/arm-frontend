@@ -1,25 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import { ConfigProvider, Layout, Space } from 'antd';
+import Form from './arm-ui/AntForm';
+import Navbar from './components/Navbar';
 
-function App() {
+const { Header, Content, Footer } = Layout; 
+
+const App = () => {
+  const [taxableIncome, setTaxableIncome] = useState("");
+
+  const headerStyles = {
+
+    background: 'white'
+  }
+
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+  
+    <ConfigProvider >
+    <Layout >
+      <Header style={headerStyles}>
+        <Navbar />
+      </Header>
+      <Content>
+        <Form />
+      </Content>
+      <Footer>Footer</Footer>
+    </Layout>
+    </ConfigProvider>
+    
   );
+
 }
 
 export default App;
