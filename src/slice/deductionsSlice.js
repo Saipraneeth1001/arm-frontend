@@ -18,18 +18,34 @@ export const counterSlice = createSlice({
     name: 'deductions',
     initialState,
     reducers: {
-        update_deductions: (state = initialState, action) => {
-            state.hra =  action.payload.hra,
-            state.homeLoanSelfOccupied = action.payload.homeLoanSelfOccupied;
-            state.homeLoanLetOut = action.payload.homeLoanLetOut;
-            state.educationLoan = action.payload.educationLoan;
-            state.employeeNPS = action.payload.employeeNPS;
-            state.employerNPS = action.payload.employerNPS;
-            state.section80C = action.payload.section80C;
-            state.medicalInsurancePremium = action.payload.medicalInsurancePremium;
-            state.savingsBankInterest = action.payload.savingsBankInterest;
-            state.nothingApplies = action.payload.nothingApplies;
-        },
+        // update_deductions: (state = initialState, action) => {
+        //     state.hra =  action.payload.hra,
+        //     state.homeLoanSelfOccupied = action.payload.homeLoanSelfOccupied;
+        //     state.homeLoanLetOut = action.payload.homeLoanLetOut;
+        //     state.educationLoan = action.payload.educationLoan;
+        //     state.employeeNPS = action.payload.employeeNPS;
+        //     state.employerNPS = action.payload.employerNPS;
+        //     state.section80C = action.payload.section80C;
+        //     state.medicalInsurancePremium = action.payload.medicalInsurancePremium;
+        //     state.savingsBankInterest = action.payload.savingsBankInterest;
+        //     state.nothingApplies = action.payload.nothingApplies;
+        // },
+
+        update_deductions: (state, action) => {
+            return {
+                ...state,
+                hra : action.payload.hra,
+                homeLoanSelfOccupied : action.payload.homeLoanSelfOccupied,
+                homeLoanLetOut : action.payload.homeLoanLetOut,
+                educationLoan : action.payload.educationLoan,
+                employeeNPS : action.payload.employeeNPS,
+                employerNPS : action.payload.employerNPS,
+                section80C : action.payload.section80C,
+                medicalInsurancePremium : action.payload.medicalInsurancePremium,
+                savingsBankInterest : action.payload.savingsBankInterest,
+                nothingApplies : action.payload.nothingApplies,
+            }
+        }
        
     },
 })
