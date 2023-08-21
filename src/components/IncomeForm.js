@@ -7,7 +7,6 @@ import Button from '@mui/material/Button';
 
 
 export default function IncomeForm() {
-
     const [salaryIncome, setSalaryIncome] = useState("");
     const [incomeFromBank, setIncomeFromBank] = useState("");
     const [investments, setInvestments] = useState("");
