@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
@@ -6,6 +6,7 @@ import Grid from '@mui/material/Grid';
 import Button from '@mui/material/Button';
 import { Typography } from '@mui/material';
 import axios from 'axios';
+import Progress from './Progress';
 
 const Analysis = () => {
 
@@ -24,7 +25,16 @@ const Analysis = () => {
     const investments = useSelector(state => state.income.investments);
     const incomeFromBank = useSelector(state => state.income.incomeFromBank);
 
+    const [showLoader, setShowLoader] = useState(false);
+    const [showButton, setShowButton] = useState(true);
+    const [showAnalysis, setShowAnalysis] = useState(false);
+
+
     const handleSubmit = () => {
+
+       setShowLoader(true);
+       setShowButton(false);
+
 
         const income = {
             salaryIncome,
@@ -48,6 +58,10 @@ const Analysis = () => {
         // })
         // .then((res) => {
         //     console.log(res);
+        //     setTimeout(() => {
+        //         setShowLoader(false);
+        //         setShowAnalysis(true);
+        //     }, 5000)
         // })
     }
 
@@ -55,16 +69,8 @@ const Analysis = () => {
         <Box sx={{ flexGrow: 1, margin: 2, padding: 5 }}>
         <Grid container spacing={2}>
             <Grid item xs={12} md={6}>
-                {/* <Typography>
-                    Salary Income: {salaryIncome}
-                </Typography>
-                <Typography>
-                    Investments: {investments}
-                </Typography>
-                <Typography>
-                    incomeFromBank: {incomeFromBank}
-                </Typography> */}
-                <Button
+                {showLoader ? <Progress /> :"" } 
+                {showButton?<Button
                     onClick={handleSubmit}
                     variant='contained'
                     size='large'
@@ -79,7 +85,8 @@ const Analysis = () => {
                             textTransform: 'none',
                             fontFamily: 'arial'
                         }}
-                    >Generate the strategy</Button>
+                    >Generate the strategy</Button>:""}
+                {showAnalysis ? "" : ""}
             </Grid>
         </Grid>
     </Box>

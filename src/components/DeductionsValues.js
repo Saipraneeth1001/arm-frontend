@@ -6,6 +6,7 @@ import Grid from '@mui/material/Grid';
 import Button from '@mui/material/Button';
 import { useSelector, useDispatch } from 'react-redux'
 import { update_deductions } from '../slice/deductionsSlice';
+import { Typography } from '@mui/material';
 
 
 export default function DeductionsValuesForm() {
@@ -24,14 +25,20 @@ export default function DeductionsValuesForm() {
     const [nothingApplies, setNothingApplies] = useState("");
 
     function handleSubmit() {
-        dispatch(update_deductions({
 
-        }))
+        const deductions = {
+            hra, homeLoanSelfOccupied, homeLoanLetOut, educationLoan, employeeNPS, employerNPS,
+                section80C, medicalInsurancePremium, savingsBankInterest, nothingApplies
+        }
+
+        dispatch(update_deductions(deductions))
     }
 
     return (
-        <Box sx={{ flexGrow: 1, margin: 2, padding: 5 }}>
-            <Grid container spacing={2}>
+        <Box sx={{ flexGrow: 1, margin: 2, padding: 5, overflow:'auto' }}>
+            <Typography>After entering values, please click apply button and then press next</Typography>
+            <Typography>If nothing applies for you, please click next</Typography>
+            <Grid container spacing={2} sx={{marginTop: 2}}>
                 <Grid item xs={12} md={6}>
                     <TextField sx={{ width: '100%' }} 
                     id="outlined-basic" label="HRA" variant="outlined"
