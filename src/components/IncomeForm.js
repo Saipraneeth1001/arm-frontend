@@ -4,6 +4,8 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Grid from '@mui/material/Grid';
 import Button from '@mui/material/Button';
+import { useDispatch } from 'react-redux';
+import { update_income } from '../slice/incomeSlice';
 
 
 export default function IncomeForm() {
@@ -11,10 +13,17 @@ export default function IncomeForm() {
     const [incomeFromBank, setIncomeFromBank] = useState("");
     const [investments, setInvestments] = useState("");
 
+    let dispatch = useDispatch();
+
     function handleSubmit() {
-        console.log("salaryIncome:" , salaryIncome);
-        console.log("incomeFromBank", incomeFromBank);
-        console.log("investments", investments);
+        dispatch(update_income({
+            salaryIncome,
+            investments,
+            incomeFromBank,
+        }));
+        setSalaryIncome("");
+        setIncomeFromBank("");
+        setInvestments("");
     }
 
     return (
@@ -40,7 +49,7 @@ export default function IncomeForm() {
                     onChange={(e) => setInvestments(e.target.value)}
                     />
                 </Grid>
-                {/* <Grid item xs={12} md={8}>
+                <Grid item xs={12} md={8}>
                     <Button
                     onClick={handleSubmit} 
                     variant='contained'
@@ -57,7 +66,7 @@ export default function IncomeForm() {
                             fontFamily: 'arial'
                         }}
                     >Submit</Button>
-                </Grid> */}
+                </Grid>
             </Grid>
         </Box>
 

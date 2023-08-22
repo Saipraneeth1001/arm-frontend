@@ -13,7 +13,7 @@ import DeductionsCheckBox from './DeductionsCheckBox';
 import DeductionsValuesForm from './DeductionsValues';
 import Analysis from './Analysis';
 
-const steps = ['IncomeDetails', 'Deductions', 'Enter Values', 'Strategize'];
+const steps = ['IncomeDetails', 'Deductions', 'Strategize'];
 
 export default function IncomeStepper() {
   const [activeStep, setActiveStep] = React.useState(0);
@@ -35,15 +35,14 @@ export default function IncomeStepper() {
       return <IncomeForm />;
     if (activeStep === 1) {
       console.log("two");
-      return <DeductionsCheckBox />
+      return <DeductionsValuesForm />
+      
     }
     if (activeStep === 2) {
       console.log("three");
-      return <DeductionsValuesForm />
+      return <Analysis />
     }
-    if (activeStep === 3) {
-       return <Analysis />
-    }
+    
   }
 
   const theme = createTheme({

@@ -5,15 +5,28 @@ import TextField from '@mui/material/TextField';
 import Grid from '@mui/material/Grid';
 import Button from '@mui/material/Button';
 import { useSelector, useDispatch } from 'react-redux'
+import { update_deductions } from '../slice/deductionsSlice';
 
 
 export default function DeductionsValuesForm() {
 
+    let dispatch = useDispatch();
 
-    
+    const [hra, setHRA] = useState("");
+    const [homeLoanSelfOccupied, setHomeLoanSelfOccupied] = useState("");
+    const [homeLoanLetOut, setHomeLoanLetout] = useState("");
+    const [educationLoan, setEducationLoan] = useState("");
+    const [employeeNPS, setEmployeeNPS] = useState("");
+    const [employerNPS, setEmployerNPS] = useState("");
+    const [section80C, setSection80C] = useState("");
+    const [medicalInsurancePremium, setMedicalInsurancePremium] = useState("");
+    const [savingsBankInterest, setSavingsBankInterest] = useState("");
+    const [nothingApplies, setNothingApplies] = useState("");
 
     function handleSubmit() {
-        
+        dispatch(update_deductions({
+
+        }))
     }
 
     return (
@@ -22,50 +35,68 @@ export default function DeductionsValuesForm() {
                 <Grid item xs={12} md={6}>
                     <TextField sx={{ width: '100%' }} 
                     id="outlined-basic" label="HRA" variant="outlined"
-                    
+                    value={hra}
+                    onChange={(e) => setHRA(e.target.value)}
                      />
                 </Grid>
                 <Grid item xs={12} md={6}>
                     <TextField sx={{ width: '100%' }}
                      id="outlined-basic" label="Deductions on 80C" variant="outlined" 
+                    value={section80C}
+                     onChange={(e) => setSection80C(e.target.value)}
                      />
                 </Grid>
                 <Grid item xs={12} md={6}>
                     <TextField sx={{ width: '100%' }} 
                     id="outlined-basic" label="Medical Insurance Premium" variant="outlined" 
+                    value={medicalInsurancePremium}
+                    onChange={(e) => setMedicalInsurancePremium(e.target.value)}
+                    
                     />
                 </Grid>
                 <Grid item xs={12} md={6}>
                     <TextField sx={{ width: '100%' }} 
                     id="outlined-basic" label="Interest on home loan - self occupied" variant="outlined" 
+                    value={homeLoanSelfOccupied}
+                    onChange={(e) => setHomeLoanSelfOccupied(e.target.value)}
                     />
                 </Grid>
                 <Grid item xs={12} md={6}>
                     <TextField sx={{ width: '100%' }} 
                     id="outlined-basic" label="Interest on home loan - let out" variant="outlined" 
+                    value={homeLoanLetOut}
+                    onChange={(e) => setHomeLoanLetout(e.target.value)}
                     />
                 </Grid>
                 <Grid item xs={12} md={6}>
                     <TextField sx={{ width: '100%' }} 
                     id="outlined-basic" label="Savings bank interest - 80TTA and 80TTB" variant="outlined" 
+                    value={savingsBankInterest}
+                    onChange={(e) => setSavingsBankInterest(e.target.value)}
                     />
                 </Grid>
                 <Grid item xs={12} md={6}>
                     <TextField sx={{ width: '100%' }} 
                     id="outlined-basic" label="Interest on education loan" variant="outlined" 
+                    value={educationLoan}
+                    onChange={(e) => setEducationLoan(e.target.value)}
                     />
                 </Grid>
                 <Grid item xs={12} md={6}>
                     <TextField sx={{ width: '100%' }} 
                     id="outlined-basic" label="Employee contribution to NPS" variant="outlined" 
+                    value={employeeNPS}
+                    onChange={(e) => setEmployeeNPS(e.target.value)}
                     />
                 </Grid>
                 <Grid item xs={12} md={6}>
                     <TextField sx={{ width: '100%' }} 
                     id="outlined-basic" label="Employers contribution to NPS" variant="outlined" 
+                    value={employerNPS}
+                    onChange={(e) => setEmployerNPS(e.target.value)}
                     />
                 </Grid>
-                {/* <Grid item xs={12} md={8}>
+                <Grid item xs={12} md={8}>
                     <Button
                     onClick={handleSubmit} 
                     variant='contained'
@@ -82,7 +113,7 @@ export default function DeductionsValuesForm() {
                             fontFamily: 'arial'
                         }}
                     >Submit</Button>
-                </Grid> */}
+                </Grid>
             </Grid>
         </Box>
 
