@@ -119,7 +119,7 @@ export default function DeductionsValuesForm() {
                             textTransform: 'none',
                             fontFamily: 'arial'
                         }}
-                    >Submit</Button>
+                    >Apply</Button>
                 </Grid>
             </Grid>
         </Box>

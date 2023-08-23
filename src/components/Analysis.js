@@ -7,6 +7,7 @@ import Button from '@mui/material/Button';
 import { Typography } from '@mui/material';
 import axios from 'axios';
 import Progress from './Progress';
+import Strategy from './Strategy';
 
 const Analysis = () => {
 
@@ -32,9 +33,9 @@ const Analysis = () => {
 
     const handleSubmit = () => {
 
-       setShowLoader(true);
-       setShowButton(false);
-
+        //    setShowLoader(true);
+        setShowButton(false);
+        setShowAnalysis(true);
 
         const income = {
             salaryIncome,
@@ -44,7 +45,7 @@ const Analysis = () => {
 
         const deductions = {
             hra, homeLoanSelfOccupied, homeLoanLetOut, educationLoan, employeeNPS, employerNPS,
-                section80C, medicalInsurancePremium, savingsBankInterest, nothingApplies
+            section80C, medicalInsurancePremium, savingsBankInterest, nothingApplies
         }
 
         // axios.post(``,{
@@ -67,13 +68,13 @@ const Analysis = () => {
 
     return (
         <Box sx={{ flexGrow: 1, margin: 2, padding: 5 }}>
-        <Grid container spacing={2}>
-            <Grid item xs={12} md={6}>
-                {showLoader ? <Progress /> :"" } 
-                {showButton?<Button
-                    onClick={handleSubmit}
-                    variant='contained'
-                    size='large'
+            <Grid container spacing={2}>
+                <Grid item xs={12} md={6}>
+                    {showLoader ? <Progress /> : ""}
+                    {showButton ? <Button
+                        onClick={handleSubmit}
+                        variant='contained'
+                        size='large'
                         sx={{
                             color: 'white',
                             font: 'bold',
@@ -85,11 +86,11 @@ const Analysis = () => {
                             textTransform: 'none',
                             fontFamily: 'arial'
                         }}
-                    >Generate the strategy</Button>:""}
-                {showAnalysis ? "" : ""}
+                    >Generate strategy</Button> : ""}
+                    {showAnalysis ? <Strategy /> : ""}
+                </Grid>
             </Grid>
-        </Grid>
-    </Box>
+        </Box>
     );
 }
 
