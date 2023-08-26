@@ -5,7 +5,7 @@ import TextField from '@mui/material/TextField';
 import Grid from '@mui/material/Grid';
 import Button from '@mui/material/Button';
 import { useSelector, useDispatch } from 'react-redux'
-import { update_deductions } from '../slice/deductionsSlice';
+import { update_deductions } from '../../slice/deductionsSlice';
 import { Typography } from '@mui/material';
 
 
@@ -13,16 +13,16 @@ export default function DeductionsValuesForm() {
 
     let dispatch = useDispatch();
 
-    const [hra, setHRA] = useState("");
-    const [homeLoanSelfOccupied, setHomeLoanSelfOccupied] = useState("");
-    const [homeLoanLetOut, setHomeLoanLetout] = useState("");
-    const [educationLoan, setEducationLoan] = useState("");
-    const [employeeNPS, setEmployeeNPS] = useState("");
-    const [employerNPS, setEmployerNPS] = useState("");
-    const [section80C, setSection80C] = useState("");
-    const [medicalInsurancePremium, setMedicalInsurancePremium] = useState("");
-    const [savingsBankInterest, setSavingsBankInterest] = useState("");
-    const [nothingApplies, setNothingApplies] = useState("");
+    const [hra, setHRA] = useState(0);
+    const [homeLoanSelfOccupied, setHomeLoanSelfOccupied] = useState(0);
+    const [homeLoanLetOut, setHomeLoanLetout] = useState(0);
+    const [educationLoan, setEducationLoan] = useState(0);
+    const [employeeNPS, setEmployeeNPS] = useState(0);
+    const [employerNPS, setEmployerNPS] = useState(0);
+    const [section80C, setSection80C] = useState(0);
+    const [medicalInsurancePremium, setMedicalInsurancePremium] = useState(0);
+    const [savingsBankInterest, setSavingsBankInterest] = useState(0);
+    const [nothingApplies, setNothingApplies] = useState(0);
 
     function handleSubmit() {
 
@@ -30,7 +30,7 @@ export default function DeductionsValuesForm() {
             hra, homeLoanSelfOccupied, homeLoanLetOut, educationLoan, employeeNPS, employerNPS,
                 section80C, medicalInsurancePremium, savingsBankInterest, nothingApplies
         }
-
+        console.log("deductions", deductions);
         dispatch(update_deductions(deductions))
     }
 

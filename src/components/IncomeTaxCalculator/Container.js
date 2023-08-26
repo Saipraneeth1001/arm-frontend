@@ -2,7 +2,7 @@ import * as React from 'react';
 import CssBaseline from '@mui/material/CssBaseline';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
-import MaterialNavbar from '../components/MaterialNavbar';
+import MaterialNavbar from './MaterialNavbar';
 import IncomeForm from './IncomeForm';
 import Stepper from './Stepper';
 import Form from './Form';

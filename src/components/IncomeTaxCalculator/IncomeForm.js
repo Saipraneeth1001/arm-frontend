@@ -5,13 +5,13 @@ import TextField from '@mui/material/TextField';
 import Grid from '@mui/material/Grid';
 import Button from '@mui/material/Button';
 import { useDispatch } from 'react-redux';
-import { update_income } from '../slice/incomeSlice';
+import { update_income } from '../../slice/incomeSlice';
 
 
 export default function IncomeForm() {
-    const [salaryIncome, setSalaryIncome] = useState("");
-    const [incomeFromBank, setIncomeFromBank] = useState("");
-    const [investments, setInvestments] = useState("");
+    const [salaryIncome, setSalaryIncome] = useState(0);
+    const [incomeFromBank, setIncomeFromBank] = useState(0);
+    const [investments, setInvestments] = useState(0);
 
     let dispatch = useDispatch();
 
@@ -21,9 +21,9 @@ export default function IncomeForm() {
             investments,
             incomeFromBank,
         }));
-        setSalaryIncome("");
-        setIncomeFromBank("");
-        setInvestments("");
+        setSalaryIncome(0);
+        setIncomeFromBank(0);
+        setInvestments(0);
     }
 
     return (

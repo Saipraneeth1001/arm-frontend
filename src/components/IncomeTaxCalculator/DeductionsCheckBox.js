@@ -8,7 +8,7 @@ import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import { useSelector, useDispatch } from 'react-redux'
-import { update_deductions } from '../slice/deductionsSlice';
+import { update_deductions } from '../../slice/deductionsSlice';
 
 export default function DeductionsCheckBox() {
     let dispatch = useDispatch();

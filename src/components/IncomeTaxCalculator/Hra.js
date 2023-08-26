@@ -119,7 +119,19 @@ export default function HRACalculatorForm() {
                         <h5 style={{ marginTop: 1 }}>Metro cities - Delhi, Mumbai, Kolkata, Chennai</h5>
                     </div>
                     <Box>
-                        <Button variant="contained" size="small"  onClick={handleSubmit}>Calculate HRA</Button>
+                        <Button sx={{
+                            mr: 1,
+                            bgcolor: '#D2042D',
+                            color: 'white',
+                            fontSize: '14px',
+                            ":hover": {
+                                bgcolor: '#D2042D',
+                                color: "white"
+                            },
+                            fontFamily: 'Arial',
+                            textTransform: 'none'
+                        }}
+                            onClick={handleSubmit}>Calculate HRA</Button>
                     </Box>
                 </ThemeProvider>
             </Box>

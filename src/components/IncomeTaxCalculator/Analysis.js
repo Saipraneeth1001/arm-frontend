@@ -13,14 +13,14 @@ const Analysis = () => {
 
     const hra = useSelector(state => state.deductions.hra);
     const homeLoanSelfOccupied = useSelector(state => state.deductions.homeLoanSelfOccupied);
-    const homeLoanLetOut = useSelector(state => state.homeLoanLetOut);
+    const homeLoanLetOut = useSelector(state => state.deductions.homeLoanLetOut);
     const educationLoan = useSelector(state => state.deductions.educationLoan);
     const employeeNPS = useSelector(state => state.deductions.employeeNPS);
     const employerNPS = useSelector(state => state.deductions.employerNPS);
     const section80C = useSelector(state => state.deductions.section80C);
     const medicalInsurancePremium = useSelector(state => state.deductions.medicalInsurancePremium);
     const savingsBankInterest = useSelector(state => state.deductions.savingsBankInterest);
-    const nothingApplies = useSelector(state => state.deductions.nothingApplies);
+    // const nothingApplies = useSelector(state => state.deductions.nothingApplies);
 
     const salaryIncome = useSelector(state => state.income.salaryIncome);
     const investments = useSelector(state => state.income.investments);
@@ -33,9 +33,8 @@ const Analysis = () => {
 
     const handleSubmit = () => {
 
-        //    setShowLoader(true);
+        setShowLoader(true);
         setShowButton(false);
-        setShowAnalysis(true);
 
         const income = {
             salaryIncome,
@@ -45,25 +44,27 @@ const Analysis = () => {
 
         const deductions = {
             hra, homeLoanSelfOccupied, homeLoanLetOut, educationLoan, employeeNPS, employerNPS,
-            section80C, medicalInsurancePremium, savingsBankInterest, nothingApplies
+            section80C, medicalInsurancePremium, savingsBankInterest
         }
 
-        // axios.post(``,{
-        //     headers: {
-        //         'Content-Type':'applicaton/json'
-        //     },
-        //     data: {
-        //         income: income,
-        //         deductions: deductions
-        //     }
-        // })
-        // .then((res) => {
-        //     console.log(res);
-        //     setTimeout(() => {
-        //         setShowLoader(false);
-        //         setShowAnalysis(true);
-        //     }, 5000)
-        // })
+        console.log("home loan let out", deductions);
+
+        axios.post(`http://localhost:3002/incomeData`,{
+            headers: {
+                'Content-Type':'applicaton/json'
+            },
+            data: {
+                ...income,
+                ...deductions
+            }
+        })
+        .then((res) => {
+            console.log(res);
+            setTimeout(() => {
+                setShowLoader(false);
+                setShowAnalysis(true);
+            }, 5000)
+        })
     }
 
     return (
