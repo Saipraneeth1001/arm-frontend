@@ -22,6 +22,7 @@ export default function DeductionsValuesForm() {
     const [section80C, setSection80C] = useState(0);
     const [medicalInsurancePremium, setMedicalInsurancePremium] = useState(0);
     const [savingsBankInterest, setSavingsBankInterest] = useState(0);
+    const [donationsToPoliticalParty, setDonationsToPoliticalParty] = useState(0);
     const [nothingApplies, setNothingApplies] = useState(0);
 
     function handleSubmit() {
@@ -101,6 +102,13 @@ export default function DeductionsValuesForm() {
                     id="outlined-basic" label="Employers contribution to NPS" variant="outlined" 
                     value={employerNPS}
                     onChange={(e) => setEmployerNPS(e.target.value)}
+                    />
+                </Grid>
+                <Grid item xs={12} md={6}>
+                    <TextField sx={{ width: '100%' }} 
+                    id="outlined-basic" label="Donations to Political Party" variant="outlined" 
+                    value={donationsToPoliticalParty}
+                    onChange={(e) => setDonationsToPoliticalParty(e.target.value)}
                     />
                 </Grid>
                 <Grid item xs={12} md={8}>

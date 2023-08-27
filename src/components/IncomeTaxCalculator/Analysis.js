@@ -29,6 +29,7 @@ const Analysis = () => {
     const [showLoader, setShowLoader] = useState(false);
     const [showButton, setShowButton] = useState(true);
     const [showAnalysis, setShowAnalysis] = useState(false);
+    const [data, setData] = useState("");
 
 
     const handleSubmit = () => {
@@ -49,13 +50,13 @@ const Analysis = () => {
 
         console.log("home loan let out", deductions);
 
-        axios.post(`http://localhost:3002/incomeData`,{
+        axios.post(`http://localhost:8080/v1/income/tax`,{
             headers: {
                 'Content-Type':'applicaton/json'
             },
             data: {
-                ...income,
-                ...deductions
+                salaryComponent: income,
+                deductionsComponent: deductions
             }
         })
         .then((res) => {
@@ -63,6 +64,7 @@ const Analysis = () => {
             setTimeout(() => {
                 setShowLoader(false);
                 setShowAnalysis(true);
+                setData(res.data);
             }, 5000)
         })
     }
@@ -88,7 +90,7 @@ const Analysis = () => {
                             fontFamily: 'arial'
                         }}
                     >Generate strategy</Button> : ""}
-                    {showAnalysis ? <Strategy /> : ""}
+                    {showAnalysis ? <Strategy data={data} /> : ""}
                 </Grid>
             </Grid>
         </Box>
