@@ -3,7 +3,8 @@ import { createSlice } from '@reduxjs/toolkit'
 const initialState = {
     salaryIncome: 0,
     investments: 0,
-    incomeFromBank: 0
+    incomeFromBank: 0,
+    basicSalary: 0,
 
 }
 
@@ -16,7 +17,8 @@ export const counterSlice = createSlice({
                 ...state,
                 salaryIncome: action.payload.salaryIncome,
                 investments: action.payload.investments,
-                incomeFromBank: action.payload.incomeFromBank
+                incomeFromBank: action.payload.incomeFromBank,
+                basicSalary: action.payload.basicSalary
             }
         }
 

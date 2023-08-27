@@ -11,6 +11,7 @@ const initialState = {
     medicalInsurancePremium : 0,
     savingsBankInterest : 0,
     nothingApplies : 0,
+    donationsToPoliticalParty: 0,
 }
 
 export const counterSlice = createSlice({
@@ -43,6 +44,7 @@ export const counterSlice = createSlice({
                 medicalInsurancePremium : action.payload.medicalInsurancePremium,
                 savingsBankInterest : action.payload.savingsBankInterest,
                 nothingApplies : action.payload.nothingApplies,
+                donationsToPoliticalParty: action.payload.donationsToPoliticalParty
             }
         }
        

@@ -4,8 +4,8 @@ import { Typography } from '@mui/material';
 
 
 
-export default function Strategy() {
+export default function Strategy({ data }) {
   return <Typography>
-    "This div's text looks like that of a button."
+    {data}
   </Typography>
 }

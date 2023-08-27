@@ -12,6 +12,7 @@ export default function IncomeForm() {
     const [salaryIncome, setSalaryIncome] = useState(0);
     const [incomeFromBank, setIncomeFromBank] = useState(0);
     const [investments, setInvestments] = useState(0);
+    const [basicSalary, setBasicSalary] = useState(0);
 
     let dispatch = useDispatch();
 
@@ -24,6 +25,7 @@ export default function IncomeForm() {
         setSalaryIncome(0);
         setIncomeFromBank(0);
         setInvestments(0);
+        setBasicSalary(0);
     }
 
     return (
@@ -47,6 +49,13 @@ export default function IncomeForm() {
                     id="outlined-basic" label="Investments" variant="outlined" 
                     value={investments}
                     onChange={(e) => setInvestments(e.target.value)}
+                    />
+                </Grid>
+                <Grid item xs={12} md={6}>
+                    <TextField sx={{ width: '100%' }} 
+                    id="outlined-basic" label="Basic Salary" variant="outlined" 
+                    value={basicSalary}
+                    onChange={(e) => setBasicSalary(e.target.value)}
                     />
                 </Grid>
                 <Grid item xs={12} md={8}>
