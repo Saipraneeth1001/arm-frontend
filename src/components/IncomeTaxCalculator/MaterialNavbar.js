@@ -22,25 +22,40 @@ export default function ButtonAppBar() {
             sx={{
               color: 'white',
               font: 'bold',
-              fontSize: '20px',
+              fontSize: '16px',
+              textTransform: 'none',
               ":hover": {
                 bgcolor: '#D2042D',
                 color: "white"
               }
             }}
-          >ARM</Button>
+          >Arm</Button>
           <Button
             onClick={handleClick}
             sx={{
               color: 'white',
               font: 'bold',
-              fontSize: '20px',
+              fontSize: '16px',
+              textTransform: 'none',
               ":hover": {
                 bgcolor: '#D2042D',
                 color: "white"
               }
             }}
-          >HRA</Button>
+          >Hra</Button>
+          <Button
+            onClick={() => {navigate('/strategize')}}
+            sx={{
+              color: 'white',
+              font: 'bold',
+              fontSize: '16px',
+              textTransform: 'none',
+              ":hover": {
+                bgcolor: '#D2042D',
+                color: "white"
+              }
+            }}
+          >Strategize</Button>
         </Toolbar>
       </AppBar>
     </Box>

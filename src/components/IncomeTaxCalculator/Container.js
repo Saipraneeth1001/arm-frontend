@@ -9,6 +9,7 @@ import Form from './Form';
 import StepperContainer from './StepperContainer';
 import { Routes, Route } from "react-router-dom"
 import HRACalculatorForm from './Hra';
+import IncomeStrategy from '../StrategyComponent/IncomeStrategy';
 
 
 export default function SimpleContainer() {
@@ -28,6 +29,13 @@ export default function SimpleContainer() {
           <Container maxWidth="lg" sx={{ padding: 2 }} >
             <MaterialNavbar />
            <HRACalculatorForm />
+          </Container>
+        </>} />
+
+        <Route path='/strategize' element={<>
+          <Container maxWidth="lg" sx={{ padding: 2 }} >
+            <MaterialNavbar />
+            <IncomeStrategy />
           </Container>
         </>} />
 
