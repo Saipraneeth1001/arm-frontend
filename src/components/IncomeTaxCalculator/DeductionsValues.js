@@ -24,12 +24,14 @@ export default function DeductionsValuesForm() {
     const [savingsBankInterest, setSavingsBankInterest] = useState(0);
     const [donationsToPoliticalParty, setDonationsToPoliticalParty] = useState(0);
     const [nothingApplies, setNothingApplies] = useState(0);
+    const [lta, setLTA] = useState(0);
+
 
     function handleSubmit() {
 
         const deductions = {
             hra, homeLoanSelfOccupied, homeLoanLetOut, educationLoan, employeeNPS, employerNPS,
-                section80C, medicalInsurancePremium, savingsBankInterest, nothingApplies
+                section80C, medicalInsurancePremium, savingsBankInterest, lta
         }
         console.log("deductions", deductions);
         dispatch(update_deductions(deductions))
@@ -92,6 +94,13 @@ export default function DeductionsValuesForm() {
                 </Grid>
                 <Grid item xs={12} md={6}>
                     <TextField sx={{ width: '100%' }} 
+                    id="outlined-basic" label="Leave Travel Allowance" variant="outlined" 
+                    value={lta}
+                    onChange={(e) => setLTA(e.target.value)}
+                    />
+                </Grid>
+                {/* <Grid item xs={12} md={6}>
+                    <TextField sx={{ width: '100%' }} 
                     id="outlined-basic" label="Employee contribution to NPS" variant="outlined" 
                     value={employeeNPS}
                     onChange={(e) => setEmployeeNPS(e.target.value)}
@@ -103,7 +112,7 @@ export default function DeductionsValuesForm() {
                     value={employerNPS}
                     onChange={(e) => setEmployerNPS(e.target.value)}
                     />
-                </Grid>
+                </Grid> */}
                 <Grid item xs={12} md={6}>
                     <TextField sx={{ width: '100%' }} 
                     id="outlined-basic" label="Donations to Political Party" variant="outlined" 

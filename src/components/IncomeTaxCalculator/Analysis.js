@@ -20,6 +20,7 @@ const Analysis = () => {
     const section80C = useSelector(state => state.deductions.section80C);
     const medicalInsurancePremium = useSelector(state => state.deductions.medicalInsurancePremium);
     const savingsBankInterest = useSelector(state => state.deductions.savingsBankInterest);
+    const lta = useSelector(state => state.deductions.lta);
     // const nothingApplies = useSelector(state => state.deductions.nothingApplies);
 
     const salaryIncome = useSelector(state => state.income.salaryIncome);
@@ -45,12 +46,10 @@ const Analysis = () => {
 
         const deductions = {
             hra, homeLoanSelfOccupied, homeLoanLetOut, educationLoan, employeeNPS, employerNPS,
-            section80C, medicalInsurancePremium, savingsBankInterest
+            section80C, medicalInsurancePremium, savingsBankInterest, lta
         }
 
-        console.log("home loan let out", deductions);
-
-        axios.post(`http://localhost:8080/v1/income/tax`,{
+        axios.post(`https://arm-ore-e5655a680a32.herokuapp.com/v1/strategize/createStrategy`,{
             headers: {
                 'Content-Type':'applicaton/json'
             },

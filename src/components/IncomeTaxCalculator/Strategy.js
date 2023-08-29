@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { styled } from '@mui/material/styles';
 import { Typography } from '@mui/material';
 import Grid from "@mui/material/Grid";
 import Button from "@mui/material/Button";
@@ -20,7 +19,7 @@ export default function Strategy({ data }) {
               </Typography>
             })
         }
-        <Grid item xs={12} md={6}>
+        {/* <Grid item xs={12} md={6}>
             <Button
               onClick={() => navigate('/')}
               variant="contained"
@@ -40,7 +39,7 @@ export default function Strategy({ data }) {
             >
               Home
             </Button>
-        </Grid>
+        </Grid> */}
     </Box>
     
   );

@@ -6,10 +6,8 @@ import StepLabel from '@mui/material/StepLabel';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import IncomeForm from './IncomeForm';
-import DeductionsForm from './Deductions';
 import { createTheme } from '@mui/material/styles';
 import { ThemeProvider } from '@emotion/react';
-import DeductionsCheckBox from './DeductionsCheckBox';
 import DeductionsValuesForm from './DeductionsValues';
 import Analysis from './Analysis';
 
