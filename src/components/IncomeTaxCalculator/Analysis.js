@@ -11,6 +11,8 @@ import Strategy from './Strategy';
 
 const Analysis = () => {
 
+    const heroku = 'https://arm-ore-e5655a680a32.herokuapp.com';
+
     const hra = useSelector(state => state.deductions.hra);
     const homeLoanSelfOccupied = useSelector(state => state.deductions.homeLoanSelfOccupied);
     const homeLoanLetOut = useSelector(state => state.deductions.homeLoanLetOut);
@@ -49,7 +51,7 @@ const Analysis = () => {
             section80C, medicalInsurancePremium, savingsBankInterest, lta
         }
 
-        axios.post(`https://arm-ore-e5655a680a32.herokuapp.com/v1/strategize/createStrategy`,{
+        axios.post(`http://localhost:8080/v1/strategize/createStrategy`,{
             headers: {
                 'Content-Type':'applicaton/json'
             },

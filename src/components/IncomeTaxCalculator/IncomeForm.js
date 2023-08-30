@@ -6,6 +6,7 @@ import Grid from '@mui/material/Grid';
 import Button from '@mui/material/Button';
 import { useDispatch } from 'react-redux';
 import { update_income } from '../../slice/incomeSlice';
+import { Typography } from '@mui/material';
 
 
 export default function IncomeForm() {
@@ -22,15 +23,18 @@ export default function IncomeForm() {
             investments,
             incomeFromBank,
         }));
-        setSalaryIncome(0);
-        setIncomeFromBank(0);
-        setInvestments(0);
-        setBasicSalary(0);
+        // setSalaryIncome(0);
+        // setIncomeFromBank(0);
+        // setInvestments(0);
+        // setBasicSalary(0);
     }
 
     return (
         <Box sx={{ flexGrow: 1, margin: 2, padding: 5 }}>
-            <Grid container spacing={2}>
+            <Typography sx={{marginBotton: 2}}>
+                After entering values, please click submit and press next
+            </Typography>
+            <Grid container spacing={2} sx={{marginTop: 1}}>
                 <Grid item xs={12} md={6}>
                     <TextField sx={{ width: '100%' }} 
                     id="outlined-basic" label="Salary Income" variant="outlined"
@@ -46,7 +50,7 @@ export default function IncomeForm() {
                 </Grid>
                 <Grid item xs={12} md={6}>
                     <TextField sx={{ width: '100%' }} 
-                    id="outlined-basic" label="Investments" variant="outlined" 
+                    id="outlined-basic" label="Income from other sources" variant="outlined" 
                     value={investments}
                     onChange={(e) => setInvestments(e.target.value)}
                     />
